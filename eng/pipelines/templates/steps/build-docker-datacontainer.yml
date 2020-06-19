@@ -25,10 +25,6 @@ steps:
 
 - checkout: PublicFork
 - checkout: PrivateFork
-
-##[group]Beginning of a group
-##[warning]Warning message
-##[error]Error message
-##[debug]Debug-only text
-##[command]Command-line being run
-##[endgroup]
+- bash: |
+    set -x
+    echo The branch $(Build.SourceBranchName) and repo $(Build.Repository.Uri)
