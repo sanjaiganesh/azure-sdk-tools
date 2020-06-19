@@ -23,7 +23,7 @@ steps:
     command: login
     containerRegistry: fedten
 
-- checkout: PublicForm
+- checkout: PublicFork
 - checkout: PrivateFork
 
 ##[group]Beginning of a group
