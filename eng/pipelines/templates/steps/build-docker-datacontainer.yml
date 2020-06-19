@@ -8,9 +8,11 @@ pool:
 resources:
   repositories:
   - repository: PublicFork
+    endpoint: github.com_sanjaiganesh
     type: github
     name: sanjaiganesh/azure-rest-api-specs
   - repository: PrivateFork
+    endpoint: github.com_sanjaiganesh
     type: github
     name: sanjaiganesh/azure-rest-api-specs-pr
 
