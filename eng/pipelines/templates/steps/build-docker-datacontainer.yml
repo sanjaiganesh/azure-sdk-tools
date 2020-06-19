@@ -1,11 +1,18 @@
 trigger:
+- master
 - sanjaiga/datacontainerpipeline
 
 pool:
   vmImage: 'Ubuntu-16.04'
 
-variables:
-  imageName: 'pipelines-javascript-docker'
+resources:
+  repositories:
+  - repository: PublicFork
+    type: github
+    name: sanjaiganesh/azure-rest-api-specs
+  - repository: PrivateFork
+    type: github
+    name: sanjaiganesh/azure-rest-api-specs-pr
 
 steps:
 - task: Docker@2
@@ -13,13 +20,13 @@ steps:
   inputs:
     command: login
     containerRegistry: fedten
-- task: Docker@2
-  displayName: Build and Push
-  inputs:
-    command: buildAndPush
-    containerRegistry: fedten
-    repository: $(imageName)
-    Dockerfile: scripts/docker-datacontainer/Dockerfile
-    tags: |
-      latest
-      v0.1.4
+
+- checkout: PublicForm
+- checkout: PrivateFork
+
+##[group]Beginning of a group
+##[warning]Warning message
+##[error]Error message
+##[debug]Debug-only text
+##[command]Command-line being run
+##[endgroup]
